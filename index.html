@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopCraft — Shopify Experts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #00c96e;
+    --green-dark: #009952;
+    --green-pale: #e6fff2;
+    --ink: #0b1117;
+    --ink-soft: #2e3740;
+    --mid: #6b7a8d;
+    --line: #e4e9ef;
+    --white: #ffffff;
+    --cream: #f7f9fb;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.35rem;
+    color: var(--ink); text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .logo-dot { width: 10px; height: 10px; background: var(--green); border-radius: 50%; display: inline-block; }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav ul a { text-decoration: none; color: var(--ink-soft); font-size: .9rem; font-weight: 500; letter-spacing: .01em; transition: color .2s; }
+  nav ul a:hover { color: var(--green-dark); }
+  .nav-cta {
+    background: var(--green); color: var(--white); padding: 10px 22px;
+    border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .88rem;
+    transition: background .2s, transform .15s;
+  }
+  .nav-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 50%, #d0fff0 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 10% 80%, #e8f8ef 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: .4;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green-pale); border: 1px solid #a8f0cc;
+    color: var(--green-dark); font-size: .8rem; font-weight: 600;
+    padding: 6px 14px; border-radius: 100px; letter-spacing: .04em;
+    margin-bottom: 28px;
+    animation: fadeUp .6s ease both;
+  }
+  .hero-badge::before { content: '✦'; font-size: .7rem; }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800; line-height: 1.08; letter-spacing: -.03em;
+    color: var(--ink);
+    animation: fadeUp .6s .1s ease both;
+  }
+  h1 em { font-style: normal; color: var(--green-dark); }
+
+  .hero-sub {
+    margin-top: 24px; font-size: 1.1rem; line-height: 1.7;
+    color: var(--ink-soft); max-width: 520px;
+    font-weight: 300;
+    animation: fadeUp .6s .2s ease both;
+  }
+
+  .slogan {
+    margin-top: 40px;
+    display: inline-block;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    font-weight: 700;
+    color: var(--white);
+    background: var(--ink);
+    padding: 14px 28px;
+    border-radius: 12px;
+    letter-spacing: -.01em;
+    animation: fadeUp .6s .3s ease both;
+    position: relative;
+    overflow: hidden;
+  }
+  .slogan::before {
+    content: '';
+    position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+    animation: shimmer 3s 1s infinite;
+  }
+  .slogan span { color: var(--green); }
+
+  .hero-actions {
+    margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap;
+    animation: fadeUp .6s .4s ease both;
+  }
+  .btn-primary {
+    background: var(--green); color: var(--white);
+    padding: 14px 30px; border-radius: 10px; text-decoration: none;
+    font-weight: 600; font-size: 1rem;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 20px rgba(0,201,110,.35);
+  }
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,201,110,.4); }
+  .btn-secondary {
+    background: transparent; color: var(--ink);
+    padding: 14px 30px; border-radius: 10px; text-decoration: none;
+    font-weight: 600; font-size: 1rem;
+    border: 1.5px solid var(--line);
+    transition: border-color .2s, background .2s;
+  }
+  .btn-secondary:hover { border-color: var(--green); background: var(--green-pale); }
+
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 64px; flex-wrap: wrap;
+    animation: fadeUp .6s .5s ease both;
+  }
+  .stat { display: flex; flex-direction: column; gap: 2px; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.9rem; font-weight: 800; color: var(--ink);
+    letter-spacing: -.03em;
+  }
+  .stat-num span { color: var(--green); }
+  .stat-label { font-size: .82rem; color: var(--mid); font-weight: 400; }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 100px 5%; }
+  .section-label {
+    font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--green-dark);
+    margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--green); }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-weight: 800; letter-spacing: -.03em; line-height: 1.1;
+    color: var(--ink);
+  }
+  .section-intro { margin-top: 16px; color: var(--mid); font-size: 1.05rem; line-height: 1.7; max-width: 540px; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--cream); }
+  .services-head { margin-bottom: 56px; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px 28px;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    cursor: default;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--green);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .3s ease;
+  }
+  .service-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.07); border-color: #d0e8da; }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 48px; height: 48px;
+    background: var(--green-pale);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+  .service-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--ink);
+  }
+  .service-desc { font-size: .9rem; line-height: 1.65; color: var(--mid); }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .tag {
+    font-size: .72rem; font-weight: 600; letter-spacing: .03em;
+    background: var(--cream); border: 1px solid var(--line);
+    color: var(--ink-soft); padding: 3px 10px; border-radius: 100px;
+  }
+
+  /* ── WHY US ── */
+  #why { background: var(--white); }
+  .why-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .why-visual {
+    background: var(--ink);
+    border-radius: 20px; padding: 48px 40px;
+    color: var(--white); position: relative; overflow: hidden;
+  }
+  .why-visual::before {
+    content: '';
+    position: absolute; top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #00c96e55, transparent 70%);
+  }
+  .why-visual-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem; font-weight: 800; margin-bottom: 32px;
+    line-height: 1.2;
+  }
+  .why-visual-title span { color: var(--green); }
+  .why-step { display: flex; gap: 16px; margin-bottom: 24px; }
+  .why-step-num {
+    flex-shrink: 0; width: 32px; height: 32px;
+    background: rgba(0,201,110,.2); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: .85rem;
+    color: var(--green);
+  }
+  .why-step-text { font-size: .92rem; line-height: 1.6; color: rgba(255,255,255,.75); }
+  .why-step-text strong { color: var(--white); display: block; margin-bottom: 2px; }
+
+  .why-points { display: flex; flex-direction: column; gap: 24px; }
+  .why-point { display: flex; gap: 16px; align-items: flex-start; }
+  .why-point-icon {
+    flex-shrink: 0; width: 40px; height: 40px;
+    background: var(--green-pale); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .why-point-body h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .98rem; margin-bottom: 4px; }
+  .why-point-body p { font-size: .88rem; color: var(--mid); line-height: 1.6; }
+
+  /* ── FREE TRIAL BANNER ── */
+  .free-banner {
+    margin: 0 5% 80px;
+    background: var(--ink);
+    border-radius: 24px;
+    padding: 60px 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 40px; flex-wrap: wrap;
+    position: relative; overflow: hidden;
+  }
+  .free-banner::before {
+    content: '';
+    position: absolute; top: -60px; right: -40px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,201,110,.25) 0%, transparent 70%);
+  }
+  .free-banner::after {
+    content: '';
+    position: absolute; bottom: -80px; left: 20%;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,201,110,.12) 0%, transparent 70%);
+  }
+  .free-banner-text { position: relative; z-index: 1; }
+  .free-banner-text h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-weight: 800; color: var(--white); line-height: 1.15;
+    letter-spacing: -.03em;
+  }
+  .free-banner-text h3 span { color: var(--green); }
+  .free-banner-text p { color: rgba(255,255,255,.6); margin-top: 10px; font-size: .97rem; }
+  .free-banner-cta { position: relative; z-index: 1; }
+  .btn-banner {
+    background: var(--green); color: var(--white);
+    padding: 16px 36px; border-radius: 12px; text-decoration: none;
+    font-weight: 700; font-size: 1rem; white-space: nowrap;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 24px rgba(0,201,110,.4);
+    display: inline-block;
+  }
+  .btn-banner:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,201,110,.5); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--cream); }
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: start; }
+  .contact-info h2 { margin-bottom: 16px; }
+  .contact-info p { color: var(--mid); font-size: .97rem; line-height: 1.7; margin-bottom: 36px; }
+  .contact-detail { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+  .contact-detail-icon {
+    width: 38px; height: 38px; flex-shrink: 0;
+    background: var(--green-pale); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 1rem;
+  }
+  .contact-detail-body label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--mid); }
+  .contact-detail-body span { display: block; font-weight: 500; color: var(--ink); font-size: .95rem; }
+
+  .contact-form {
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: 20px; padding: 40px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+  .form-group label { font-size: .8rem; font-weight: 600; color: var(--ink-soft); letter-spacing: .02em; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 12px 16px; border-radius: 10px;
+    border: 1.5px solid var(--line); font-family: 'DM Sans', sans-serif;
+    font-size: .92rem; color: var(--ink); outline: none;
+    transition: border-color .2s, box-shadow .2s;
+    background: var(--white);
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(0,201,110,.12);
+  }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-submit {
+    width: 100%; padding: 15px; border: none; border-radius: 10px;
+    background: var(--green); color: var(--white);
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem;
+    cursor: pointer; letter-spacing: .01em;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 16px rgba(0,201,110,.3);
+  }
+  .form-submit:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,201,110,.4); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,.5);
+    padding: 40px 5%; display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 16px;
+    font-size: .85rem;
+  }
+  footer .logo { color: var(--white); }
+  footer a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+  footer a:hover { color: var(--green); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    from { left: -100%; }
+    to   { left: 200%; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    .why-wrap, .contact-wrap { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .free-banner { padding: 40px 28px; flex-direction: column; }
+    .hero-stats { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo"><span class="logo-dot"></span>ShopCraft</a>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Free Audit →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Shopify Certified Experts</div>
+    <h1>We Build Shopify Stores<br>That <em>Actually Sell</em></h1>
+    <p class="hero-sub">From zero to launch — theme setup, custom development, internationalisation, and everything in between. Your store, built right, the first time.</p>
+
+    <div class="slogan">⚡ <span>Try us free</span> — no invoice on your first project milestone.</div>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start Your Free Project</a>
+      <a href="#services" class="btn-secondary">See All Services</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">200<span>+</span></span><span class="stat-label">Stores Launched</span></div>
+      <div class="stat"><span class="stat-num">40<span>+</span></span><span class="stat-label">Countries Served</span></div>
+      <div class="stat"><span class="stat-num">98<span>%</span></span><span class="stat-label">Client Satisfaction</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-head">
+    <div class="section-label">What We Do</div>
+    <h2>Every Service Your<br>Shopify Store Needs</h2>
+    <p class="section-intro">From initial setup to complex customisations — we handle the full spectrum so you can focus on growing your business.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">🏪</div>
+      <div class="service-title">Store Setup & Configuration</div>
+      <p class="service-desc">Full Shopify store setup from scratch — account creation, domain connection, payment gateways, taxes, and shipping zones configured correctly from day one.</p>
+      <div class="service-tags"><span class="tag">New Store</span><span class="tag">Payments</span><span class="tag">Shipping</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <div class="service-title">Theme Customisation</div>
+      <p class="service-desc">Pixel-perfect theme edits, custom sections, and unique storefront experiences — both free and premium themes, tailored to your brand identity.</p>
+      <div class="service-tags"><span class="tag">Dawn</span><span class="tag">Liquid</span><span class="tag">Custom Sections</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🌍</div>
+      <div class="service-title">Internationalisation</div>
+      <p class="service-desc">Multi-language, multi-currency, and region-specific storefronts using Shopify Markets. Reach customers across the globe without friction.</p>
+      <div class="service-tags"><span class="tag">Shopify Markets</span><span class="tag">Multi-Currency</span><span class="tag">RTL Support</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📦</div>
+      <div class="service-title">Product & Catalog Management</div>
+      <p class="service-desc">Bulk product uploads, variant setup, metafields, collections architecture, and smart filtering — your catalog structured for discoverability and sales.</p>
+      <div class="service-tags"><span class="tag">Metafields</span><span class="tag">Collections</span><span class="tag">Bulk Import</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <div class="service-title">App Integration & Automation</div>
+      <p class="service-desc">Third-party app setup, Shopify Flow automation, and custom integrations with ERPs, CRMs, and logistics platforms like Shiprocket, Unicommerce, and more.</p>
+      <div class="service-tags"><span class="tag">Shopify Flow</span><span class="tag">ERP</span><span class="tag">Shiprocket</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🛒</div>
+      <div class="service-title">Checkout Customisation</div>
+      <p class="service-desc">Custom checkout UI extensions, upsells in cart and checkout, discount logic, and Shopify Functions for complex pricing rules at scale.</p>
+      <div class="service-tags"><span class="tag">Checkout UI</span><span class="tag">Shopify Functions</span><span class="tag">Discounts</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <div class="service-title">Mobile-First Optimisation</div>
+      <p class="service-desc">Speed audits, Core Web Vitals fixes, image optimisation, and mobile UX improvements. A fast store converts — a slow one doesn't.</p>
+      <div class="service-tags"><span class="tag">CWV</span><span class="tag">PageSpeed</span><span class="tag">Lazy Loading</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🔄</div>
+      <div class="service-title">Platform Migration</div>
+      <p class="service-desc">Seamless migration from WooCommerce, Magento, BigCommerce, or any custom platform — products, customers, orders, and SEO signals preserved.</p>
+      <div class="service-tags"><span class="tag">WooCommerce</span><span class="tag">Magento</span><span class="tag">SEO Safe</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <div class="service-title">SEO & Analytics Setup</div>
+      <p class="service-desc">Schema markup, sitemap, redirect management, GA4 + Meta Pixel setup, and conversion tracking — built to rank and measure what matters.</p>
+      <div class="service-tags"><span class="tag">GA4</span><span class="tag">Schema</span><span class="tag">Meta Pixel</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🛡️</div>
+      <div class="service-title">Ongoing Support & Maintenance</div>
+      <p class="service-desc">Dedicated retainer packages for bug fixes, theme updates, new features, and monthly performance reviews. Your store never stops improving.</p>
+      <div class="service-tags"><span class="tag">Retainer</span><span class="tag">SLA</span><span class="tag">Priority Support</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🧩</div>
+      <div class="service-title">Custom App Development</div>
+      <p class="service-desc">Bespoke Shopify apps — embedded admin tools, public apps, and custom storefronts using Hydrogen or the Storefront API for headless commerce.</p>
+      <div class="service-tags"><span class="tag">Hydrogen</span><span class="tag">Admin API</span><span class="tag">React Router</span></div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💰</div>
+      <div class="service-title">COD & Payment Optimization</div>
+      <p class="service-desc">Cash-on-delivery workflows, prepaid incentives, RTO reduction strategies, and localised payment methods — especially built for the Indian D2C market.</p>
+      <div class="service-tags"><span class="tag">COD</span><span class="tag">D2C India</span><span class="tag">RTO Reduction</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-wrap">
+    <div class="why-visual">
+      <div class="why-visual-title">How a typical<br><span>project flows</span></div>
+      <div class="why-step">
+        <div class="why-step-num">01</div>
+        <div class="why-step-text"><strong>Free Discovery Call</strong>We audit your current setup (or goals) and scope the work — zero commitment on your end.</div>
+      </div>
+      <div class="why-step">
+        <div class="why-step-num">02</div>
+        <div class="why-step-text"><strong>First Milestone — On Us</strong>We complete the first deliverable before any invoice. You see quality before you spend a rupee.</div>
+      </div>
+      <div class="why-step">
+        <div class="why-step-num">03</div>
+        <div class="why-step-text"><strong>Iterative Builds</strong>Regular previews and Loom walkthrough videos keep you in control at every step.</div>
+      </div>
+      <div class="why-step">
+        <div class="why-step-num">04</div>
+        <div class="why-step-text"><strong>Launch + Handover</strong>Full documentation, staff training, and 30 days of post-launch support included as standard.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Why ShopCraft</div>
+      <h2>Built by devs who<br>live on Shopify</h2>
+      <p class="section-intro" style="margin-bottom:40px;">Not a generic agency. We specialise exclusively in Shopify — it's the only platform we work on, and that depth shows in every project.</p>
+
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-point-icon">🎯</div>
+          <div class="why-point-body">
+            <h4>Shopify-Only Specialists</h4>
+            <p>We don't split focus across platforms. Every team member works exclusively within the Shopify ecosystem every single day.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon">⚡</div>
+          <div class="why-point-body">
+            <h4>Fast Turnaround Without Trade-offs</h4>
+            <p>Standard setups delivered in 5–7 days. Complex builds within 3–4 weeks. Speed through experience, not shortcuts.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon">🇮🇳</div>
+          <div class="why-point-body">
+            <h4>Deep Indian Market Knowledge</h4>
+            <p>GST-compliant setups, Shiprocket integration, COD optimisation, and regional payment methods — built into our process by default.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon">📞</div>
+          <div class="why-point-body">
+            <h4>A Real Person, Always</h4>
+            <p>No ticket queues. You get a dedicated point of contact on WhatsApp, Slack, or email — whichever works for you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREE TRIAL BANNER -->
+<div class="free-banner">
+  <div class="free-banner-text">
+    <h3>Your first project milestone?<br><span>Completely on us.</span></h3>
+    <p>We deliver real work before we send an invoice. No catch, no lock-in — just results that earn your trust.</p>
+  </div>
+  <div class="free-banner-cta">
+    <a href="#contact" class="btn-banner">Claim Your Free Start →</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="section-label">Get In Touch</div>
+      <h2>Tell us about<br>your store</h2>
+      <p>Whether you're starting from scratch, migrating from another platform, or need specific customisations — we'd love to hear what you're building. We respond within 4 business hours.</p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div class="contact-detail-body">
+          <label>Email</label>
+          <span>hello@shopcraft.in</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">💬</div>
+        <div class="contact-detail-body">
+          <label>WhatsApp</label>
+          <span>+91 98xxx xxxxx</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🕐</div>
+        <div class="contact-detail-body">
+          <label>Response Time</label>
+          <span>Within 4 business hours (IST)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Rahul">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Sharma">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="rahul@yourbrand.com">
+      </div>
+      <div class="form-group">
+        <label>Service You Need</label>
+        <select>
+          <option value="" disabled selected>Select a service...</option>
+          <option>Store Setup & Configuration</option>
+          <option>Theme Customisation</option>
+          <option>Internationalisation / Shopify Markets</option>
+          <option>Platform Migration</option>
+          <option>Checkout Customisation</option>
+          <option>App Integration & Automation</option>
+          <option>Custom App Development</option>
+          <option>SEO & Analytics Setup</option>
+          <option>Ongoing Support & Maintenance</option>
+          <option>Something Else</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell Us About Your Project</label>
+        <textarea placeholder="What's your store about? What are you trying to achieve? Do you have an existing store or starting fresh?"></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit(this)">Send Message — It's Free to Ask ✦</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo"><span class="logo-dot"></span>ShopCraft</a>
+  <span>© 2025 ShopCraft. All rights reserved.</span>
+  <div style="display:flex;gap:24px;">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(btn) {
+    btn.textContent = '✓ Message Sent! We\'ll be in touch soon.';
+    btn.style.background = '#009952';
+    btn.disabled = true;
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .why-point, .contact-form').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
