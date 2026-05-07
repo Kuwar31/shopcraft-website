@@ -485,6 +485,76 @@
   }
   .faq-item.open .faq-answer { max-height: 400px; padding-bottom: 26px; }
 
+  /* ── HOW IT WORKS ── */
+  #process { background: var(--ink); }
+  #process .section-label { color: var(--green); }
+  #process .section-label::before { background: var(--green); }
+  #process h2 { color: var(--white); }
+  #process .section-intro { color: rgba(255,255,255,.5); margin-bottom: 56px; }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .process-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px; padding: 32px 28px;
+    position: relative;
+    transition: background .25s, border-color .25s, transform .25s;
+  }
+  .process-card:hover { background: rgba(255,255,255,.08); border-color: rgba(0,201,110,.3); transform: translateY(-4px); }
+  .process-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: .72rem; font-weight: 800; letter-spacing: .1em;
+    color: var(--green); margin-bottom: 16px;
+  }
+  .process-icon { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+  .process-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem; font-weight: 700; color: var(--white);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .process-desc { font-size: .87rem; line-height: 1.75; color: rgba(255,255,255,.6); margin-bottom: 18px; }
+  .process-tag {
+    font-size: .72rem; font-weight: 600; letter-spacing: .03em;
+    color: var(--green); background: rgba(0,201,110,.1);
+    border: 1px solid rgba(0,201,110,.2);
+    padding: 4px 12px; border-radius: 100px; display: inline-block;
+  }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,.5);
+    text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    animation: waPulse 2.5s infinite;
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
+  .wa-float svg { width: 28px; height: 28px; fill: white; }
+  .wa-tooltip {
+    position: absolute; right: 68px; background: var(--ink);
+    color: var(--white); font-size: .8rem; font-weight: 600;
+    padding: 6px 12px; border-radius: 8px; white-space: nowrap;
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s;
+  }
+  .wa-tooltip::after {
+    content: ''; position: absolute; right: -6px; top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-right: none; border-left-color: var(--ink);
+  }
+  .wa-float:hover .wa-tooltip { opacity: 1; }
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,.5); }
+    50% { box-shadow: 0 4px 32px rgba(37,211,102,.8); }
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav ul { display: none; }
@@ -504,7 +574,7 @@
   <ul>
     <li><a href="#services">Services</a></li>
     <li><a href="#why">Why Us</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#process">How It Works</a></li>
     <li><a href="#faqs">FAQs</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -718,14 +788,14 @@
         <div class="contact-detail-icon">💬</div>
         <div class="contact-detail-body">
           <label>WhatsApp</label>
-          <span>+91 98xxx xxxxx</span>
+          <span>+91 99112 27709</span>
         </div>
       </div>
       <div class="contact-detail">
         <div class="contact-detail-icon">🕐</div>
         <div class="contact-detail-body">
           <label>Response Time</label>
-          <span>Within 4 business hours (IST)</span>
+          <span>Within 1 business day (IST)</span>
         </div>
       </div>
     </div>
@@ -794,84 +864,62 @@
   </div>
 </div>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="section-label">What Clients Say</div>
-  <h2 style="color:var(--white)">Real stores. Real results.</h2>
-  <p class="section-intro">Don't take our word for it — here's what founders say after working with us.</p>
+<!-- HOW IT WORKS -->
+<section id="process">
+  <div class="section-label">How It Works</div>
+  <h2>From first message<br>to live store</h2>
+  <p class="section-intro">A simple, transparent process — no jargon, no surprises. Just steady progress toward your launch.</p>
 
-  <div class="testi-grid">
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">ShopCraft set up our entire Shopify store in under a week. The theme customisation was exactly what we wanted — clean, fast, and totally on-brand. We went live ahead of schedule.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">AR</div>
-        <div>
-          <div class="testi-name">Anika Rao</div>
-          <div class="testi-role">Founder, Velvet & Co. — Fashion D2C</div>
-        </div>
-      </div>
+  <div class="process-grid">
+
+    <div class="process-card">
+      <div class="process-num">01</div>
+      <div class="process-icon">💬</div>
+      <h3 class="process-title">Tell Us What You Need</h3>
+      <p class="process-desc">Fill out the contact form or WhatsApp us directly. Tell us about your business, your goals, and what you're trying to build. No lengthy briefs needed — a few lines is enough to get started.</p>
+      <div class="process-tag">Free · No commitment</div>
     </div>
 
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">We migrated from WooCommerce with 3,000+ products. Zero data loss, SEO rankings actually improved after the move. The team was communicative and professional throughout.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">SK</div>
-        <div>
-          <div class="testi-name">Sameer Khan</div>
-          <div class="testi-role">CEO, NutriBox India — Health & Wellness</div>
-        </div>
-      </div>
+    <div class="process-card">
+      <div class="process-num">02</div>
+      <div class="process-icon">🔍</div>
+      <h3 class="process-title">Free Discovery & Scoping</h3>
+      <p class="process-desc">We audit your current setup (or your goals if you're starting fresh), ask the right questions, and put together a clear scope — timeline, deliverables, and cost. Transparent upfront, always.</p>
+      <div class="process-tag">Audit · Proposal · Timeline</div>
     </div>
 
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">The Shopify Markets setup opened up sales to 12 new countries within a month. Multi-currency, localised content — everything just worked. Incredible value for money.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">PM</div>
-        <div>
-          <div class="testi-name">Priya Mehta</div>
-          <div class="testi-role">Co-founder, Earthen Studio — Home Décor</div>
-        </div>
-      </div>
+    <div class="process-card">
+      <div class="process-num">03</div>
+      <div class="process-icon">⚡</div>
+      <h3 class="process-title">First Milestone — On Us</h3>
+      <p class="process-desc">We start work immediately and deliver the first agreed milestone before sending any invoice. You see real output before spending a rupee. If you love it, we continue. No pressure either way.</p>
+      <div class="process-tag">Zero risk · Real deliverable first</div>
     </div>
 
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">They built a custom checkout extension that reduced our cart abandonment by 22%. The Shopify Functions discount logic they wrote handles our complex B2B pricing perfectly.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">RV</div>
-        <div>
-          <div class="testi-name">Rohan Verma</div>
-          <div class="testi-role">Head of eCommerce, SupplyLoop — B2B</div>
-        </div>
-      </div>
+    <div class="process-card">
+      <div class="process-num">04</div>
+      <div class="process-icon">🔄</div>
+      <h3 class="process-title">Build, Review & Iterate</h3>
+      <p class="process-desc">We build in stages with regular Loom walkthroughs so you're never in the dark. You give feedback, we refine. Every step is tracked and documented so nothing falls through the cracks.</p>
+      <div class="process-tag">Loom updates · Iterative builds</div>
     </div>
 
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">Our PageSpeed score went from 41 to 89 after their performance audit. The store feels completely different — faster, cleaner, and we're converting way better on mobile.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">DG</div>
-        <div>
-          <div class="testi-name">Deepa Gupta</div>
-          <div class="testi-role">Founder, Petal & Dew — Skincare</div>
-        </div>
-      </div>
+    <div class="process-card">
+      <div class="process-num">05</div>
+      <div class="process-icon">🚀</div>
+      <h3 class="process-title">Launch & Handover</h3>
+      <p class="process-desc">We launch your store, run final QA checks, and hand everything over with full documentation. You get a walkthrough video so you know exactly how to manage everything yourself.</p>
+      <div class="process-tag">QA · Documentation · Training</div>
     </div>
 
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">As a first-time founder I was nervous about tech. The free first milestone offer gave me the confidence to try — and they delivered so well we ended up doing the full project with them.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">NS</div>
-        <div>
-          <div class="testi-name">Neha Suri</div>
-          <div class="testi-role">Founder, Mitti Pottery — Artisan Brand</div>
-        </div>
-      </div>
+    <div class="process-card">
+      <div class="process-num">06</div>
+      <div class="process-icon">🛡️</div>
+      <h3 class="process-title">30-Day Post-Launch Support</h3>
+      <p class="process-desc">Every project includes 30 days of post-launch support at no extra cost. Bug fixes, tweaks, questions — we're on WhatsApp. After that, flexible retainer plans are available if you want us to stick around.</p>
+      <div class="process-tag">Included free · Retainers available</div>
     </div>
+
   </div>
 </section>
 
@@ -998,6 +1046,14 @@
   </div>
 </section>
 
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/919911227709?text=Hi%2C%20I%27m%20interested%20in%20Shopify%20services" target="_blank" rel="noopener">
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
 
 <footer>
   <a href="#" class="logo"><span class="logo-dot"></span>ShopCraft</a>
