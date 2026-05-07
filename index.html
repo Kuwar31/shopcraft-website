@@ -379,13 +379,118 @@
     to   { left: 200%; }
   }
 
+  /* ── MARQUEE TICKER ── */
+  .marquee-wrap {
+    background: var(--green); padding: 14px 0; overflow: hidden;
+    display: flex; gap: 0;
+  }
+  .marquee-track {
+    display: flex; gap: 0; animation: marquee 28s linear infinite; white-space: nowrap;
+  }
+  .marquee-item {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 0 32px;
+    font-family: 'Syne', sans-serif; font-size: .85rem; font-weight: 700;
+    color: var(--white); letter-spacing: .04em; text-transform: uppercase;
+  }
+  .marquee-sep { color: rgba(255,255,255,.4); font-size: 1rem; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--ink); padding: 100px 5%; }
+  #testimonials .section-label { color: var(--green); }
+  #testimonials .section-label::before { background: var(--green); }
+  #testimonials h2 { color: var(--white); }
+  #testimonials .section-intro { color: rgba(255,255,255,.5); }
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px; margin-top: 52px;
+  }
+  .testi-card {
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px; padding: 28px;
+    transition: background .25s, border-color .25s, transform .25s;
+  }
+  .testi-card:hover { background: rgba(255,255,255,.08); border-color: rgba(0,201,110,.3); transform: translateY(-4px); }
+  .testi-stars { color: var(--green); font-size: .9rem; letter-spacing: 2px; margin-bottom: 16px; }
+  .testi-quote { font-size: .93rem; line-height: 1.7; color: rgba(255,255,255,.75); font-style: italic; margin-bottom: 20px; }
+  .testi-quote::before { content: '"'; font-size: 2rem; color: var(--green); font-style: normal; line-height: 0; vertical-align: -0.5rem; margin-right: 4px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--green-dark), #004d2a);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: .85rem; color: var(--white);
+    flex-shrink: 0;
+  }
+  .testi-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .9rem; color: var(--white); }
+  .testi-role { font-size: .78rem; color: rgba(255,255,255,.4); }
+
+  /* ── TECH STACK ── */
+  #stack { background: var(--white); }
+  .stack-head { margin-bottom: 52px; }
+  .stack-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .stack-item {
+    border: 1.5px solid var(--line); border-radius: 14px;
+    padding: 22px 16px; text-align: center;
+    transition: border-color .2s, background .2s, transform .2s;
+    cursor: default;
+  }
+  .stack-item:hover { border-color: var(--green); background: var(--green-pale); transform: translateY(-3px); }
+  .stack-emoji { font-size: 1.8rem; display: block; margin-bottom: 10px; }
+  .stack-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .82rem; color: var(--ink); }
+  .stack-desc { font-size: .73rem; color: var(--mid); margin-top: 4px; line-height: 1.4; }
+
+  /* ── FAQs ── */
+  #faqs { background: var(--cream); }
+  .faq-wrap { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+  .faq-sidebar h2 { margin-bottom: 16px; }
+  .faq-sidebar p { color: var(--mid); font-size: .97rem; line-height: 1.7; margin-bottom: 32px; }
+  .faq-cta-box {
+    background: var(--ink); border-radius: 16px; padding: 28px;
+    color: var(--white);
+  }
+  .faq-cta-box h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 8px; }
+  .faq-cta-box p { font-size: .85rem; color: rgba(255,255,255,.6); line-height: 1.6; margin-bottom: 18px; }
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-item:first-child { border-top: 1px solid var(--line); }
+  .faq-question {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 0; text-align: left; gap: 16px;
+    font-family: 'Syne', sans-serif; font-size: .97rem; font-weight: 700;
+    color: var(--ink); transition: color .2s;
+  }
+  .faq-question:hover { color: var(--green-dark); }
+  .faq-chevron {
+    flex-shrink: 0; width: 28px; height: 28px;
+    border-radius: 50%; border: 1.5px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem; color: var(--mid);
+    transition: transform .3s, background .2s, border-color .2s;
+  }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); background: var(--green); border-color: var(--green); color: var(--white); }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height .4s ease, padding .3s ease;
+    font-size: .92rem; color: var(--mid); line-height: 1.75;
+  }
+  .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 20px; }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav ul { display: none; }
-    .why-wrap, .contact-wrap { grid-template-columns: 1fr; }
+    .why-wrap, .contact-wrap, .faq-wrap { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .free-banner { padding: 40px 28px; flex-direction: column; }
     .hero-stats { gap: 28px; }
+    .stack-grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
 </head>
@@ -397,6 +502,8 @@
   <ul>
     <li><a href="#services">Services</a></li>
     <li><a href="#why">Why Us</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faqs">FAQs</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get Free Audit →</a>
@@ -667,7 +774,235 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- MARQUEE TICKER -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Store Setup <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Theme Customisation <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Internationalisation <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Custom Apps <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Shopify Plus <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Platform Migration <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">COD Optimisation <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Checkout Extensions <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">SEO & Analytics <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Store Setup <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Theme Customisation <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Internationalisation <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Custom Apps <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Shopify Plus <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Platform Migration <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">COD Optimisation <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Checkout Extensions <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">SEO & Analytics <span class="marquee-sep">✦</span></span>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-label">What Clients Say</div>
+  <h2 style="color:var(--white)">Real stores. Real results.</h2>
+  <p class="section-intro">Don't take our word for it — here's what founders say after working with us.</p>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">ShopCraft set up our entire Shopify store in under a week. The theme customisation was exactly what we wanted — clean, fast, and totally on-brand. We went live ahead of schedule.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AR</div>
+        <div>
+          <div class="testi-name">Anika Rao</div>
+          <div class="testi-role">Founder, Velvet & Co. — Fashion D2C</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">We migrated from WooCommerce with 3,000+ products. Zero data loss, SEO rankings actually improved after the move. The team was communicative and professional throughout.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SK</div>
+        <div>
+          <div class="testi-name">Sameer Khan</div>
+          <div class="testi-role">CEO, NutriBox India — Health & Wellness</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">The Shopify Markets setup opened up sales to 12 new countries within a month. Multi-currency, localised content — everything just worked. Incredible value for money.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">PM</div>
+        <div>
+          <div class="testi-name">Priya Mehta</div>
+          <div class="testi-role">Co-founder, Earthen Studio — Home Décor</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">They built a custom checkout extension that reduced our cart abandonment by 22%. The Shopify Functions discount logic they wrote handles our complex B2B pricing perfectly.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">RV</div>
+        <div>
+          <div class="testi-name">Rohan Verma</div>
+          <div class="testi-role">Head of eCommerce, SupplyLoop — B2B</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">Our PageSpeed score went from 41 to 89 after their performance audit. The store feels completely different — faster, cleaner, and we're converting way better on mobile.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">DG</div>
+        <div>
+          <div class="testi-name">Deepa Gupta</div>
+          <div class="testi-role">Founder, Petal & Dew — Skincare</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">As a first-time founder I was nervous about tech. The free first milestone offer gave me the confidence to try — and they delivered so well we ended up doing the full project with them.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">NS</div>
+        <div>
+          <div class="testi-name">Neha Suri</div>
+          <div class="testi-role">Founder, Mitti Pottery — Artisan Brand</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="stack">
+  <div class="stack-head">
+    <div class="section-label">Tools & Technologies</div>
+    <h2>The stack we work with</h2>
+    <p class="section-intro">Every tool we use is battle-tested across hundreds of Shopify projects. No guesswork, just expertise.</p>
+  </div>
+  <div class="stack-grid">
+    <div class="stack-item"><span class="stack-emoji">🛍️</span><div class="stack-name">Shopify</div><div class="stack-desc">Core platform & Plus</div></div>
+    <div class="stack-item"><span class="stack-emoji">💧</span><div class="stack-name">Liquid</div><div class="stack-desc">Theme templating</div></div>
+    <div class="stack-item"><span class="stack-emoji">⚛️</span><div class="stack-name">React / Hydrogen</div><div class="stack-desc">Headless storefronts</div></div>
+    <div class="stack-item"><span class="stack-emoji">🔀</span><div class="stack-name">React Router v7</div><div class="stack-desc">Embedded app routing</div></div>
+    <div class="stack-item"><span class="stack-emoji">🗄️</span><div class="stack-name">Prisma + PostgreSQL</div><div class="stack-desc">App data layer</div></div>
+    <div class="stack-item"><span class="stack-emoji">⚙️</span><div class="stack-name">Shopify Functions</div><div class="stack-desc">Custom discount logic</div></div>
+    <div class="stack-item"><span class="stack-emoji">🧩</span><div class="stack-name">UI Extensions</div><div class="stack-desc">Admin & checkout UI</div></div>
+    <div class="stack-item"><span class="stack-emoji">🌍</span><div class="stack-name">Shopify Markets</div><div class="stack-desc">Internationalisation</div></div>
+    <div class="stack-item"><span class="stack-emoji">🚀</span><div class="stack-name">Shopify Flow</div><div class="stack-desc">Automation workflows</div></div>
+    <div class="stack-item"><span class="stack-emoji">📊</span><div class="stack-name">GA4 + Meta Pixel</div><div class="stack-desc">Analytics & tracking</div></div>
+    <div class="stack-item"><span class="stack-emoji">🚢</span><div class="stack-name">Shiprocket</div><div class="stack-desc">Indian logistics</div></div>
+    <div class="stack-item"><span class="stack-emoji">☁️</span><div class="stack-name">Render / Vercel</div><div class="stack-desc">App deployment</div></div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section id="faqs">
+  <div class="faq-wrap">
+    <div class="faq-sidebar">
+      <div class="section-label">FAQs</div>
+      <h2>Questions you probably have</h2>
+      <p>Honestly answered. No marketing fluff.</p>
+      <div class="faq-cta-box">
+        <h4>Still have a question?</h4>
+        <p>Drop us a message and we'll get back to you within 4 business hours.</p>
+        <a href="#contact" class="btn-primary" style="display:inline-block;font-size:.88rem;padding:11px 22px;">Ask Us Directly →</a>
+      </div>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How does the "free first milestone" actually work?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          Before we send any invoice, we complete the first agreed deliverable of your project — whether that's a homepage design, a store setup draft, or an initial theme customisation. You review it, request changes, and only once you're happy do we proceed to the rest of the project. There's no catch, no hidden lock-in — we just believe work should earn trust before money does.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does a typical Shopify store setup take?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          A standard store setup (theme install, payment gateways, shipping zones, product import, basic customisation) typically takes 5–7 business days. More complex projects with custom sections, app integrations, or migrations take 3–4 weeks depending on scope. We'll give you a realistic timeline after the discovery call.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you only work with new stores or existing ones too?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          Both. We work with brand new stores being built from scratch, existing stores that need redesigns or feature additions, and stores migrating from platforms like WooCommerce, Magento, or custom-built sites. About half our projects are improvements to existing stores.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What's your pricing like?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          We price per project, not per hour. A basic store setup starts from ₹15,000. Theme customisations vary based on complexity. Custom app development and complex integrations are quoted after a scoping call. We're transparent about costs upfront — no surprise invoices. Ongoing retainers start from ₹8,000/month.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can you help with Shopify for the Indian market specifically?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          Yes — this is a core strength. We handle GST-compliant tax configurations, Shiprocket and Delhivery integrations, COD workflows with prepaid incentives, UPI and Razorpay payment setups, and RTO reduction strategies specific to the Indian D2C market. We understand how Indian ecommerce actually works.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Will I be able to manage my store myself after you build it?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          Absolutely — that's a priority for us. Every project includes full documentation and a handover walkthrough via Loom video. We build stores to be managed by non-technical founders. If you want ongoing support, we offer flexible retainer plans, but there's no obligation to use them.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you work on Shopify Plus?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          Yes. We work on both standard Shopify and Shopify Plus. Plus-specific work includes custom checkout UI extensions, checkout.liquid replacements, advanced Shopify Functions, B2B wholesale setups, expansion stores, and organisation-level automation with Shopify Flow.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How do we communicate during a project?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          You get a dedicated point of contact — not a rotating support team. We communicate over WhatsApp, Slack, or email depending on what works for you. For larger projects, we do weekly check-in calls with Loom walkthroughs of progress so you're never in the dark.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 <footer>
   <a href="#" class="logo"><span class="logo-dot"></span>ShopCraft</a>
   <span>© 2025 ShopCraft. All rights reserved.</span>
@@ -685,6 +1020,13 @@
     btn.disabled = true;
   }
 
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -695,7 +1037,7 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.service-card, .why-point, .contact-form').forEach(el => {
+  document.querySelectorAll('.service-card, .why-point, .contact-form, .testi-card, .stack-item, .faq-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity .5s ease, transform .5s ease';
