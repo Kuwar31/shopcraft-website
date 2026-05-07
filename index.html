@@ -1042,7 +1042,7 @@
       document.getElementById('service').value   = '';
       document.getElementById('message').value   = '';
     }).catch((err) => {
-      console.error('EmailJS error:', err);
+      console.error('EmailJS full error:', JSON.stringify(err));
       btn.textContent = '✗ Something went wrong. Please try again.';
       btn.style.background = '#e53e3e';
       btn.disabled = false;
