@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ShopCraft — Shopify Experts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --green: #00c96e;
@@ -24,9 +24,9 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
     color: var(--ink);
     background: var(--white);
     overflow-x: hidden;
@@ -43,7 +43,7 @@
     border-bottom: 1px solid var(--line);
   }
   .logo {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 800; font-size: 1.35rem;
     color: var(--ink); text-decoration: none;
     display: flex; align-items: center; gap: 8px;
@@ -63,7 +63,7 @@
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
-    padding: 140px 6% 100px;
+    padding: 110px 6% 80px;
     position: relative;
     overflow: hidden;
   }
@@ -93,9 +93,9 @@
   .hero-badge::before { content: '✦'; font-size: .7rem; }
 
   h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(3rem, 6.5vw, 5.4rem);
-    font-weight: 800; line-height: 1.1; letter-spacing: -.03em;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 800; line-height: 1.15; letter-spacing: -.02em;
     color: var(--ink);
     animation: fadeUp .6s .1s ease both;
   }
@@ -109,9 +109,9 @@
   }
 
   .slogan {
-    margin-top: 52px;
+    margin-top: 36px;
     display: inline-block;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: clamp(1rem, 2.2vw, 1.3rem);
     font-weight: 700;
     color: var(--white);
@@ -153,12 +153,12 @@
   .btn-secondary:hover { border-color: var(--green); background: var(--green-pale); }
 
   .hero-stats {
-    display: flex; gap: 56px; margin-top: 80px; flex-wrap: wrap;
+    display: flex; gap: 48px; margin-top: 56px; flex-wrap: wrap;
     animation: fadeUp .6s .5s ease both;
   }
   .stat { display: flex; flex-direction: column; gap: 4px; }
   .stat-num {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 2.2rem; font-weight: 800; color: var(--ink);
     letter-spacing: -.03em;
   }
@@ -166,34 +166,34 @@
   .stat-label { font-size: .85rem; color: var(--mid); font-weight: 400; letter-spacing: .02em; }
 
   /* ── SECTION COMMONS ── */
-  section { padding: 130px 6%; }
+  section { padding: 96px 6%; }
   .section-label {
-    font-size: .75rem; font-weight: 700; letter-spacing: .14em;
+    font-size: .72rem; font-weight: 700; letter-spacing: .14em;
     text-transform: uppercase; color: var(--green-dark);
-    margin-bottom: 18px; display: flex; align-items: center; gap: 10px;
+    margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
   }
-  .section-label::before { content: ''; display: block; width: 28px; height: 2px; background: var(--green); }
+  .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--green); }
   h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 800; letter-spacing: -.03em; line-height: 1.12;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    font-weight: 800; letter-spacing: -.02em; line-height: 1.15;
     color: var(--ink);
   }
-  .section-intro { margin-top: 20px; color: var(--mid); font-size: 1.08rem; line-height: 1.85; max-width: 560px; }
+  .section-intro { margin-top: 14px; color: var(--mid); font-size: .97rem; line-height: 1.75; max-width: 520px; }
 
   /* ── SERVICES ── */
   #services { background: var(--cream); }
-  .services-head { margin-bottom: 72px; }
+  .services-head { margin-bottom: 48px; }
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
   }
   .service-card {
     background: var(--white);
     border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 40px 36px;
+    border-radius: 16px;
+    padding: 26px 24px;
     transition: transform .25s, box-shadow .25s, border-color .25s;
     cursor: default;
     position: relative; overflow: hidden;
@@ -208,23 +208,23 @@
   .service-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.07); border-color: #d0e8da; }
   .service-card:hover::before { transform: scaleX(1); }
   .service-icon {
-    width: 56px; height: 56px;
+    width: 40px; height: 40px;
     background: var(--green-pale);
-    border-radius: 14px;
+    border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 24px;
+    font-size: 1.15rem;
+    margin-bottom: 14px;
   }
   .service-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.12rem; font-weight: 700; margin-bottom: 12px; color: var(--ink);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: .97rem; font-weight: 700; margin-bottom: 8px; color: var(--ink);
   }
-  .service-desc { font-size: .93rem; line-height: 1.75; color: var(--mid); }
-  .service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .service-desc { font-size: .83rem; line-height: 1.65; color: var(--mid); }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
   .tag {
-    font-size: .72rem; font-weight: 600; letter-spacing: .03em;
+    font-size: .68rem; font-weight: 600; letter-spacing: .02em;
     background: var(--cream); border: 1px solid var(--line);
-    color: var(--ink-soft); padding: 4px 12px; border-radius: 100px;
+    color: var(--ink-soft); padding: 3px 9px; border-radius: 100px;
   }
 
   /* ── WHY US ── */
@@ -243,7 +243,7 @@
     background: radial-gradient(circle, #00c96e55, transparent 70%);
   }
   .why-visual-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.7rem; font-weight: 800; margin-bottom: 40px;
     line-height: 1.2;
   }
@@ -253,7 +253,7 @@
     flex-shrink: 0; width: 34px; height: 34px;
     background: rgba(0,201,110,.2); border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: .85rem;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: .85rem;
     color: var(--green);
   }
   .why-step-text { font-size: .95rem; line-height: 1.7; color: rgba(255,255,255,.75); }
@@ -267,7 +267,7 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 1.2rem;
   }
-  .why-point-body h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+  .why-point-body h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
   .why-point-body p { font-size: .92rem; color: var(--mid); line-height: 1.75; }
 
   /* ── FREE TRIAL BANNER ── */
@@ -294,7 +294,7 @@
   }
   .free-banner-text { position: relative; z-index: 1; }
   .free-banner-text h3 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: clamp(1.5rem, 3vw, 2.4rem);
     font-weight: 800; color: var(--white); line-height: 1.15;
     letter-spacing: -.03em;
@@ -337,7 +337,7 @@
   .form-group textarea,
   .form-group select {
     padding: 14px 18px; border-radius: 12px;
-    border: 1.5px solid var(--line); font-family: 'DM Sans', sans-serif;
+    border: 1.5px solid var(--line); font-family: 'Inter', sans-serif;
     font-size: .95rem; color: var(--ink); outline: none;
     transition: border-color .2s, box-shadow .2s;
     background: var(--white);
@@ -353,7 +353,7 @@
   .form-submit {
     width: 100%; padding: 17px; border: none; border-radius: 12px;
     background: var(--green); color: var(--white);
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1rem;
     cursor: pointer; letter-spacing: .01em;
     transition: background .2s, transform .15s, box-shadow .2s;
     box-shadow: 0 4px 16px rgba(0,201,110,.3);
@@ -392,14 +392,14 @@
   .marquee-item {
     display: inline-flex; align-items: center; gap: 12px;
     padding: 0 32px;
-    font-family: 'Syne', sans-serif; font-size: .85rem; font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: .85rem; font-weight: 700;
     color: var(--white); letter-spacing: .04em; text-transform: uppercase;
   }
   .marquee-sep { color: rgba(255,255,255,.4); font-size: 1rem; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* ── TESTIMONIALS ── */
-  #testimonials { background: var(--ink); padding: 130px 6%; }
+  #testimonials { background: var(--ink); padding: 96px 6%; }
   #testimonials .section-label { color: var(--green); }
   #testimonials .section-label::before { background: var(--green); }
   #testimonials h2 { color: var(--white); }
@@ -422,10 +422,10 @@
     width: 40px; height: 40px; border-radius: 50%;
     background: linear-gradient(135deg, var(--green-dark), #004d2a);
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: .85rem; color: var(--white);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: .85rem; color: var(--white);
     flex-shrink: 0;
   }
-  .testi-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .9rem; color: var(--white); }
+  .testi-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .9rem; color: var(--white); }
   .testi-role { font-size: .78rem; color: rgba(255,255,255,.4); }
 
   /* ── TECH STACK ── */
@@ -443,7 +443,7 @@
   }
   .stack-item:hover { border-color: var(--green); background: var(--green-pale); transform: translateY(-3px); }
   .stack-emoji { font-size: 2rem; display: block; margin-bottom: 14px; }
-  .stack-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: .85rem; color: var(--ink); }
+  .stack-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .85rem; color: var(--ink); }
   .stack-desc { font-size: .76rem; color: var(--mid); margin-top: 5px; line-height: 1.5; }
 
   /* ── FAQs ── */
@@ -455,7 +455,7 @@
     background: var(--ink); border-radius: 20px; padding: 36px;
     color: var(--white);
   }
-  .faq-cta-box h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; }
+  .faq-cta-box h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; }
   .faq-cta-box p { font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.7; margin-bottom: 22px; }
   .faq-list { display: flex; flex-direction: column; gap: 0; }
   .faq-item {
@@ -466,7 +466,7 @@
     width: 100%; background: none; border: none; cursor: pointer;
     display: flex; justify-content: space-between; align-items: center;
     padding: 26px 0; text-align: left; gap: 20px;
-    font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700;
     color: var(--ink); transition: color .2s;
   }
   .faq-question:hover { color: var(--green-dark); }
